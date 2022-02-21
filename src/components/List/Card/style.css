@@ -1,0 +1,26 @@
+.card__container{
+width: 400px;
+font-size: 1rem;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.card__img{
+
+}
+.card__row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1rem;
+}
+.card__row.--around{
+    justify-content: space-around;
+}
+.card__row__col{
+
+}
+.card__title{
+
+}
+.card__text{
+font-size: .8em;
+}
