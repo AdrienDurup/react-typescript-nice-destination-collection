@@ -1,5 +1,5 @@
 // Imports
-import React from 'react';
+import React, { useState } from 'react';
 
 // Components
 
@@ -9,13 +9,18 @@ import './style.css';
 
 //props interface
 interface ModalProps {
-children:React.ReactNode,
+    children?: React.ReactNode | undefined,
+    // display?: boolean,
+    // validator?: ,
 }
 
-const Modal = ({children}:ModalProps ) => {
-
+const Modal = ({ children }: ModalProps) => {
+    const [modalDisplay, setModalDisplay]:[boolean,Function] = useState(false);
+    const handleCloseModal = () => {
+        setModalDisplay(false);
+    };
     return (
-        <div className='modal__overlay' >
+        <div className={modalDisplay?'modal__overlay':'modal__overlay --display-none'} onClick={handleCloseModal}>
             <div className='modal__main'>
                 {children}
             </div>
