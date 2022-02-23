@@ -1,14 +1,17 @@
+// React Imports
+import { FormEvent } from 'react';
+
 // Components
 
 // Styling
 import './style.css';
 
 const DestinationForm = () => {
-    const handlePostDestination = (e) => {
+    const handlePostDestination = (e:FormEvent):void => {
         e.preventDefault();
         console.log("submit OK");
     }
-    const handleCancelModal = () => {
+    const handleCancelModal = ():void => {
         console.log("cancel OK");
     }
     return (

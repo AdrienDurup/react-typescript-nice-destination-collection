@@ -1,9 +1,12 @@
 // Imports
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 // Components
 import Card from './Card';
+
+// context
+import ModalContext from '../Modal/context';
 
 // Styling
 import './style.css';
@@ -11,15 +14,19 @@ import './style.css';
 // data
 import data from './data';
 
-const List = () => {
-    const [modalDisplay, setModalDisplay]:[boolean,Function] = useState(false);
-const handleShowDestinationModal=()=>{
-    console.log("show modal");
-    
-    setModalDisplay(true);
-};
-    return (
+import DestinationForm from '../Modal/DestinationForm';
 
+
+
+const List = () => {
+
+const {setModalDisplay,setModalInner}=useContext(ModalContext);
+
+    const handleShowDestinationModal = () => {
+        if (setModalInner) setModalInner('DestinationForm');
+        if (setModalDisplay) setModalDisplay(true);
+        };
+    return (
         <>
             <div className='list__header'>
                 <h2 className='list__title'>Destinations</h2>
@@ -30,7 +37,6 @@ const handleShowDestinationModal=()=>{
                     <Card {...el} key={el.id} />
                 ))}
             </div>
-
         </>
 
 
