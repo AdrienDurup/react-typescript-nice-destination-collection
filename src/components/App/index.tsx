@@ -1,6 +1,6 @@
 // react
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 // comps
 import List from '../List';
@@ -13,21 +13,25 @@ import modalComponents from '../Modal/modalComponents';
 import './App.css';
 
 // modal context
-import ModalContext from '../Modal/context';
+import ModalContext, { useModalContext } from '../Modal/context';
+import ModalProvider from '../Modal/ModalProvider';
 
 function App() {
-  const [modalDisplay, setModalDisplay] = useState(true);
-  const [modalInner, setModalInner] = useState('DestinationForm');
-  console.log("modalInner",modalInner);
-  
+
+  // const {modalDisplay, setModalDisplay,modalInner, setModalInner}=useContext(ModalContext);
+
   return (
     <>
-      <ModalContext.Provider value={{ setModalDisplay, setModalInner }} >
+      {/* we provide modal setters in order to display or populate the modal from anywhere in the app.
+    value will never change : components using these setters won’t re-render */}
+      {/* <ModalContext.Provider value={{ setModalDisplay, setModalInner }} > */}
       {/* <ModalContext.Provider value={{display:true,inner:'DestinationForm'}}> */}
-      < List />
-      <Modal components={modalComponents} inner={modalInner} display={modalDisplay} />
+      <ModalProvider inners={modalComponents}>
+        < List /> 
+      </ModalProvider>
+
       {/* <Modal display={modalDisplayStatePair} form='DestinationForm' components={modalComponents} /> */}
-    </ModalContext.Provider>
+      {/* </ModalContext.Provider> */}
     </>
 
   );

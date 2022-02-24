@@ -1,8 +1,5 @@
 // Imports
-import React, { useContext, SyntheticEvent, useEffect, useRef, RefObject, KeyboardEventHandler } from 'react';
-import DestinationForm from './DestinationForm';
-
-// Components
+import React, { useContext, useEffect, BaseSyntheticEvent, FunctionComponent} from 'react';
 
 //context
 import ModalContext from './context';
@@ -13,17 +10,16 @@ import './style.css';
 
 //props interface
 interface ModalProps {
-    inner: string,
+    // InnerComp: React.FunctionComponent,
     display: boolean,
-    components: { // object containing components that can be injected in modal
-        [key: string]: React.FunctionComponent
-    },
+    // children:React.ReactChildren,
+//     components: { // object containing components that can be injected in modal
+//         [key: string]: React.FunctionComponent
+//     },
 }
 
-const Modal = ({ inner, components, display }: ModalProps) => {
-    const { setModalDisplay, setModalInner } = useContext(ModalContext);
-    console.log("INNER AND DIRPLAY", inner, display);
-
+const Modal:FunctionComponent<ModalProps> = ({ children, display }) => {
+    const { setModalDisplay } = useContext(ModalContext);
     useEffect(() => {
         const handleCloseByKB = (e: KeyboardEvent) => {
             console.log(e);
@@ -36,20 +32,20 @@ const Modal = ({ inner, components, display }: ModalProps) => {
         }
     }, []);
 
-    const handleCloseModal = (e: ) => {
-        console.log(e);
-        if (setModalDisplay && e.currentTarget.id === 'app-main-modal') setModalDisplay(false);
+    const handleCloseModal = (e:BaseSyntheticEvent) => {
+        // const element:Element=e.target;
+        console.log(e.target.id);
+        if (setModalDisplay && e.target.id === 'app-main-modal') setModalDisplay(false);
     };
 
 
     /* we get inner component from a dictionary 'ComponentName':ComponentFunction
     then we pass component to a variable */
-    const FormInstance = components[inner];
     return (
         // <div className='modal__overlay' onCslick={handleCloseModal}>
-        <div className={display ? 'modal__overlay' : 'modal__overlay --display-none'} id='app-main-modal' onClick={handleCloseModal}>
+        <div className={display ? 'modal__overlay' : 'modal__overlay --display-none'} data-id='app-main-modal' id='app-main-modal' onClick={handleCloseModal}>
             <div className='modal__main'>
-                <FormInstance />
+                {children}
             </div>
         </div>
     )

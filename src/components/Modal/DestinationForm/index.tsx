@@ -1,18 +1,21 @@
 // React Imports
-import { FormEvent } from 'react';
+import { FormEvent, useContext } from 'react';
 
 // Components
 
+// context 
+import modalContext from '../context';
 // Styling
 import './style.css';
 
-const DestinationForm = () => {
+const DestinationForm = (props:any) => {
+    const {setModalDisplay}=useContext(modalContext);
     const handlePostDestination = (e:FormEvent):void => {
         e.preventDefault();
         console.log("submit OK");
     }
     const handleCancelModal = ():void => {
-        console.log("cancel OK");
+        if(setModalDisplay) setModalDisplay(false);
     }
     return (
         <form className='new-destination-form' onSubmit={handlePostDestination}>

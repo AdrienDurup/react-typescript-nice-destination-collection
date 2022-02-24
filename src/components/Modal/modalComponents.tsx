@@ -1,5 +1,12 @@
 import DestinationForm from "./DestinationForm"
 
-export default {
-    'DestinationForm':DestinationForm,
+const modalInnerComps = {
+//     'DestinationForm': {
+//         InnerComponent: DestinationForm,
+//         props: {},
+//     },
+// }
+'DestinationForm': <DestinationForm test={1} />,
 }
+
+export default modalInnerComps;
