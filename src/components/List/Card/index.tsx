@@ -6,7 +6,7 @@
 import './style.css';
 
 // Data Structure
-import { Destination } from '../data';
+import {Destination} from '../../../model';
 
 const Card = ({ name, address, population, hostels, averageIncome, area }: Destination) => {
 

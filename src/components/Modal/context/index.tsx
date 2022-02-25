@@ -15,11 +15,13 @@ export const useModalContext = () => {
 }
 
 export interface ModalContextI {
+    modalDisplay:boolean,
+    // modalInner:string,
     setModalDisplay: Dispatch<SetStateAction<boolean>> | undefined,
     setModalInner: Dispatch<SetStateAction<string>> | undefined,
 }
 
-const init: ModalContextI = { setModalDisplay: undefined, setModalInner: undefined };
+const init: ModalContextI = { setModalDisplay: undefined, setModalInner: undefined, modalDisplay:false };
 
 const Context = React.createContext(init);
 // export const provider=context.Provider;

@@ -1,33 +1,4 @@
-// interface for card data
-export interface Destination {
-    id:string;
-    name: string,
-    address: string,
-    population: number,
-    hostels: number,
-    averageIncome: number,
-    area: number,
-}
-
-//a class for generating card data object
-class CardData implements Destination {
-    public id:string;
-    public name: string;
-    public address: string;
-    public population: number;
-    public hostels: number;
-    public averageIncome: number;
-    public area: number;
-    constructor(name: string, address: string, population: number, hostels: number, averageIncome: number, area: number) {
-        this.name = name;
-        this.address = address;
-        this.population = population;
-        this.hostels = hostels;
-        this.averageIncome = averageIncome;
-        this.area = area;
-        this.id = `${name}-${Date.now()}`;
-    }
-}
+import {CardData} from "../../model";
 
 // we export data in an array
 export default [

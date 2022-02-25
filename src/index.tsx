@@ -4,9 +4,13 @@ import './styles/index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
+// import Destination
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <DestinationCtxt.Provider value={DestinationCtxt_init}> */}
+      <App />
+    {/* </DestinationCtxt.Provider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

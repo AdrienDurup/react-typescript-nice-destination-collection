@@ -27,14 +27,15 @@ const ModalProvider: FunctionComponent<ModalProps> = ({ inners, children }) => {
   const { modalDisplay, setModalDisplay, modalInner, setModalInner } = useModalContext();
   console.log(inners);
 
+  /* we select the needed component for populating the modal wrapper */
   const innerComponent = inners[modalInner];
   console.log(innerComponent);
 
   return (
     <>
       {/* we provide modal setters in order to display or populate the modal from anywhere in the app.
-    value will never change : components using these setters won’t re-render */}
-      <ModalContext.Provider value={{ setModalDisplay, setModalInner }} >
+    We provide the display boolean value. It may be needed to trigger useEffect() for example*/}
+      <ModalContext.Provider value={{ setModalDisplay, setModalInner ,modalDisplay }} >
         {children}
         <Modal display={modalDisplay}>
           {innerComponent}

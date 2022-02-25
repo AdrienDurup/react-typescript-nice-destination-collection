@@ -1,10 +1,8 @@
 // react
-import React from 'react';
-import { useState, useContext } from 'react';
+import React, { useEffect } from 'react';
 
 // comps
 import List from '../List';
-import Modal from '../Modal';
 
 //modal contents
 import modalComponents from '../Modal/modalComponents';
@@ -12,27 +10,33 @@ import modalComponents from '../Modal/modalComponents';
 // style
 import './App.css';
 
-// modal context
-import ModalContext, { useModalContext } from '../Modal/context';
+// modal context and component
 import ModalProvider from '../Modal/ModalProvider';
 
-function App() {
+// cards context, type
+import {DestinationCtxt} from '../../contexts';
 
-  // const {modalDisplay, setModalDisplay,modalInner, setModalInner}=useContext(ModalContext);
+// hooks
+import { useDestination } from '../../hooks';
+
+function App() {
+  /* 
+  TODO place context definitions of non-reusable components in a context folder. Do the same for interfaces */
+  const[destinationList,setDestinationList]=useDestination();
+    // useEffect(()=>{
+
+    // },[]);
+   useEffect(() => {
+
+console.log('updated',destinationList.length);
+}, [destinationList]);
 
   return (
-    <>
-      {/* we provide modal setters in order to display or populate the modal from anywhere in the app.
-    value will never change : components using these setters won’t re-render */}
-      {/* <ModalContext.Provider value={{ setModalDisplay, setModalInner }} > */}
-      {/* <ModalContext.Provider value={{display:true,inner:'DestinationForm'}}> */}
-      <ModalProvider inners={modalComponents}>
-        < List /> 
-      </ModalProvider>
-
-      {/* <Modal display={modalDisplayStatePair} form='DestinationForm' components={modalComponents} /> */}
-      {/* </ModalContext.Provider> */}
-    </>
+    <DestinationCtxt.Provider value={{destinationList,setDestinationList}}>
+    <ModalProvider inners={modalComponents}>
+        <List />
+    </ModalProvider>
+    </DestinationCtxt.Provider>
 
   );
 }
