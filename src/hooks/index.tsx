@@ -6,6 +6,6 @@ export const useDestination = ()=>{
     let mergedData:DestinationList=[];
     const storedString: string | null = localStorage.getItem('my-test-app');
     const storedCards: DestinationList = JSON.parse(storedString ? storedString : '[]');
-    mergedData = [...hardCodedCards, ...storedCards];
+    mergedData=storedCards.length===0?hardCodedCards:storedCards;
     return useState<DestinationList>(mergedData);
 }
