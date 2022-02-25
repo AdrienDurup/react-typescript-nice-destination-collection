@@ -5,17 +5,12 @@ import React, { useContext, useEffect, BaseSyntheticEvent, FunctionComponent} fr
 import ModalContext from './context';
 
 // Styling
-
 import './style.css';
+
 
 //props interface
 interface ModalProps {
-    // InnerComp: React.FunctionComponent,
     display: boolean,
-    // children:React.ReactChildren,
-//     components: { // object containing components that can be injected in modal
-//         [key: string]: React.FunctionComponent
-//     },
 }
 
 const Modal:FunctionComponent<ModalProps> = ({ children, display }) => {

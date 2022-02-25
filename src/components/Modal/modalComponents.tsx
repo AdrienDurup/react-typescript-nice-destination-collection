@@ -1,4 +1,4 @@
-import DestinationForm from "./DestinationForm"
+import DestinationForm from "../DestinationForm"
 
 const modalInnerComps = {
 'DestinationForm': <DestinationForm />,

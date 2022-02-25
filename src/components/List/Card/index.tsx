@@ -8,11 +8,11 @@ import './style.css';
 // Data Structure
 import {Destination} from '../../../model';
 
-const Card = ({ name, address, population, hostels, averageIncome, area }: Destination) => {
+const Card = ({ img, name, address, population, hostels, income, area }: Destination) => {
 
     return (
         <article className='card__container'>
-            <img className='card__img' />
+            <img className='card__img' src={img} alt={name}/>
             <div className='card__row'>
                 <div className='card__row__col'>
                     <h3 className='card__title'>{name}</h3>
@@ -31,7 +31,7 @@ const Card = ({ name, address, population, hostels, averageIncome, area }: Desti
                     <p className='card__text'>Hôtels</p>
                 </div>
                 <div className='card__row__col'>
-                    <p className='card__text'>{averageIncome} €</p>
+                    <p className='card__text'>{income} €</p>
                     <p className='card__text'>Revenu Moy</p>
                 </div>
                 <div className='card__row__col'>

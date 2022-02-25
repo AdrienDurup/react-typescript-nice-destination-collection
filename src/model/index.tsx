@@ -3,7 +3,8 @@ export interface BaseObject {
 }
 
 export interface Destination extends BaseObject {
-    id: string;
+    id: string,
+    img:string,
     name: string,
     address: string,
     population: string,
@@ -15,6 +16,7 @@ export interface Destination extends BaseObject {
 
 export class CardData implements Destination {
     public id: string;
+    public img: string;
     public name: string;
     public address: string;
     public population: string;
@@ -23,7 +25,8 @@ export class CardData implements Destination {
     public area: string;
     public key: string;
     [key: string]: string;
-    constructor(name: string, address: string, population: number, hostels: number, income: number, area: number) {
+    constructor(img:string, name: string, address: string, population: number, hostels: number, income: number, area: number) {
+        this.img= img;
         this.name = name;
         this.address = address;
         this.population = population.toString();
@@ -37,6 +40,7 @@ export class CardData implements Destination {
 
 export class DestinationData implements Destination {
     public id: string = '';
+    public img: string = '';
     public name: string = '';
     public address: string = '';
     public population: string = '';
