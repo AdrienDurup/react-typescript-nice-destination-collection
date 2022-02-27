@@ -15,6 +15,8 @@ interface ModalProps {
 
 const Modal:FunctionComponent<ModalProps> = ({ children, display }) => {
     const { setModalDisplay } = useContext(ModalContext);
+
+    /* we attach a keyboard event listener that handles modal closure on 'Escape' key press */
     useEffect(() => {
         const handleCloseByKB = (e: KeyboardEvent) => {
             console.log(e);

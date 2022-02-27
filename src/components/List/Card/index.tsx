@@ -1,15 +1,14 @@
-// Imports
-
 // Components
-
+import SwitchUI from '../../SwitchUI';
 // Styling
 import './style.css';
 
 // Data Structure
 import {Destination} from '../../../model';
+import { useState } from 'react';
 
 const Card = ({ img, name, address, population, hostels, income, area }: Destination) => {
-
+const [switchVal,setSwitchVal]=useState(false);
     return (
         <article className='card__container'>
             <img className='card__img' src={img} alt={name}/>
@@ -18,7 +17,7 @@ const Card = ({ img, name, address, population, hostels, income, area }: Destina
                     <h3 className='card__title'>{name}</h3>
                     <p className='card__text'>{address}</p>
                 </div>
-                {/* <ToggleUI /> */}
+                <SwitchUI value={switchVal} setValue={setSwitchVal}/>
 
             </div>
             <div className='card__row --around'>

@@ -1,7 +1,7 @@
 .switch__wrapper {
     display: flex;
     align-items: center;
-    margin-left: 24px;
+    //margin-left: 24px;
   }
   
   .switch__label {
@@ -94,22 +94,4 @@
     line-height: .8em;
     margin-left: .5rem;
     color:white;
-  }
-  
-  /* global dark mode definition */
-  body.--dark-mode {
-    & .page {
-      background-color:black;
-  
-      & h2,
-      & p,
-      & .ingredient,
-      & .step {
-        color:white;
-      }
-  
-      & .steps {
-        background-color: rgb(36, 36, 36);
-      }
-    }
   }

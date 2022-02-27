@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SetStateAction, Dispatch } from "react";
 
 export const useModalContext = () => {
-    const [modalDisplay, setModalDisplay] = useState(true);
+    const [modalDisplay, setModalDisplay] = useState(false);
     const [modalInner, setModalInner] = useState('DestinationForm');
     console.log("modalInner", modalInner);
     return {
@@ -16,7 +16,6 @@ export const useModalContext = () => {
 
 export interface ModalContextI {
     modalDisplay:boolean,
-    // modalInner:string,
     setModalDisplay: Dispatch<SetStateAction<boolean>> | undefined,
     setModalInner: Dispatch<SetStateAction<string>> | undefined,
 }

@@ -1,7 +1,7 @@
 // React Imports
 import { BaseSyntheticEvent, useContext, useEffect, useRef } from 'react';
 import { DestinationContextI, DestinationCtxt } from '../../contexts';
-import {Destination, BaseObject, DestinationData} from '../../model';
+import { Destination, DestinationData } from '../../model';
 
 // Components
 
@@ -17,18 +17,21 @@ const DestinationForm = () => {
     const { setModalDisplay, modalDisplay } = useContext(modalContext);
     const { destinationList, setDestinationList } = useContext<DestinationContextI>(DestinationCtxt);
 
+    /*form submit handler */
     const handlePostDestination = (e: BaseSyntheticEvent): void => {
         e.preventDefault();
+        /* we create a formData object as we didn’t make controlled inputs. */
         const formData: FormData = new FormData(e.target);
-        // const test:FormData=new FormData();
-        // test.append('test','test');
-        const newDestination: Destination = formDataToInstance<DestinationData>(formData,DestinationData,'new-destination-');
-              console.log("submit OK", newDestination);
-
+        /* we use a helper which convert a form data to instance of given class, and we format field name, deleting a prefix if provided, so that field name and 
+        instance property are identical*/
+        const newDestination: Destination = formDataToInstance<DestinationData>(formData, DestinationData, 'new-destination-');
+        console.log("submit OK", newDestination);
+        /* we add new destination to destination list in state */
         if (setDestinationList && destinationList) {
-            const mergedList=[...destinationList,newDestination];
+            const mergedList = [...destinationList, newDestination];
             setDestinationList(mergedList);
-            localStorage.setItem('my-test-app',JSON.stringify(mergedList));
+            /* we save the list to local storage */
+            localStorage.setItem('my-test-app', JSON.stringify(mergedList));
 
         };
         /* we close modal */
@@ -59,7 +62,7 @@ const DestinationForm = () => {
             />
             <input className='new-destination-form__input' type='text' required placeholder='Adresse' name='new-destination-address' value='Grand Place' />
             <input className='new-destination-form__input' type='text' required placeholder='Lien de l’image' name='new-destination-img' value={`${process.env.REACT_APP_SERVER}/Lille_vue_gd_place.jpeg`} />
-            <input className='new-destination-form__input --quarter' required type='text' placeholder='Nb. Habitants' name='new-destination-pop' value='12' />
+            <input className='new-destination-form__input --quarter' required type='text' placeholder='Nb. Habitants' name='new-destination-population' value='12' />
             <input className='new-destination-form__input  --quarter' required type='text' placeholder='Nb. Hôtels' name='new-destination-hostels' value='123' />
             <input className='new-destination-form__input  --quarter' required type='text' placeholder='Revenu Moy' name='new-destination-income' value='34000' />
             <input className='new-destination-form__input  --quarter' required type='text' placeholder='Superficie' name='new-destination-area' value='345' />

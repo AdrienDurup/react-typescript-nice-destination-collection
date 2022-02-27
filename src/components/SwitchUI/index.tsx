@@ -7,20 +7,16 @@ import { Dispatch, SetStateAction, useEffect } from 'react';
 import './style.scss';
 
 // props
-interface switchUII {
+interface SwitchUII {
     value: boolean,
     setValue: Dispatch<SetStateAction<boolean>>,
 }
 
-const SwitchUI = ({ value, setValue }: switchUII) => {
+const SwitchUI = ({ value, setValue }: SwitchUII) => {
     const stringValue:string=value.toString();
     const handleToggle = () => {
         setValue(!value);
     };
-    // useEffect(() => {
-    //     if (value) document.body.classList.add('--on');
-    //     else document.body.classList.remove('--on');
-    // }, [value]);
     return (
         <div className="switch__wrapper">
             <label htmlFor="switch-ui" className="switch__label">
