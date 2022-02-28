@@ -11,10 +11,6 @@ import { DestinationCtxt } from '../../contexts';
 // Styling
 import './style.css';
 
-// interface Props{
-//     cards:Array<Destination>,
-// }
-
 const List = () => {
     /* context for displaying and populating modal window */
     const { setModalDisplay, setModalInner } = useContext(ModalContext);
@@ -28,7 +24,7 @@ const List = () => {
     };
     return (
         <>
-            <div className='cards-container'>
+            <div className='list__page-layout'>
             <div className='list__header'>
                 <h2 className='list__title'>Destinations</h2>
                 <button type='button' className='list__add' onClick={handleShowDestinationModal}>+ Ajouter</button>

@@ -1,14 +1,13 @@
 .list__header{
     display: flex;
-flex-grow: 1;
-max-width: 100%;
-min-width: 70%;
-justify-content: space-between;
-align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 .list__title{
-font-weight: 200;
-font-size: 2rem;
+    font-weight: 200;
+    font-size: 2rem;
 }
 .list__add{
     background-color: rgb(48, 206, 0);
@@ -18,14 +17,24 @@ font-size: 2rem;
     border-radius: 4px;
     font-size: 1.2rem;
 }
-.cards-container{
+.list__page-layout{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-width:fit-content;
-gap: 1rem;
-/* align-items: center; */
-justify-content: center;
-margin: auto 10%;
-/* padding: 0 10%; */
+    width:fit-content;
+    row-gap: 1rem;
+    justify-content: space-between;
+
+}
+
+@media screen and (min-width:400px) {
+    .list__page-layout{
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (min-width:320px) {
+    .list__page-layout{
+        margin:auto;
+    } 
 }
