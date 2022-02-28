@@ -9,6 +9,8 @@ import { useState } from 'react';
 
 const Card = ({ img, name, address, population, hostels, income, area }: Destination) => {
 const [switchVal,setSwitchVal]=useState(false);
+/* 
+TODO connect SwitchUI to destination List context : toggle value is currently not stored in state or local storage */
     return (
         <article className='card__container'>
             <img className='card__img' src={img} alt={name}/>

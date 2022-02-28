@@ -8,9 +8,6 @@ import Card from './Card';
 import ModalContext from '../Modal/context';
 import { DestinationCtxt } from '../../contexts';
 
-// data interface
-import { Destination } from '../../model';
-
 // Styling
 import './style.css';
 
@@ -19,10 +16,11 @@ import './style.css';
 // }
 
 const List = () => {
-
+    /* context for displaying and populating modal window */
     const { setModalDisplay, setModalInner } = useContext(ModalContext);
-    const {destinationList} = useContext(DestinationCtxt);
-console.log(destinationList);
+    /* context for destination list */
+    const { destinationList } = useContext(DestinationCtxt);
+    console.log(destinationList);
 
     const handleShowDestinationModal = () => {
         if (setModalInner) setModalInner('DestinationForm');
@@ -30,14 +28,14 @@ console.log(destinationList);
     };
     return (
         <>
+            <div className='cards-container'>
             <div className='list__header'>
                 <h2 className='list__title'>Destinations</h2>
                 <button type='button' className='list__add' onClick={handleShowDestinationModal}>+ Ajouter</button>
             </div>
-            <div className='cards-container'>
-                {destinationList 
-                && destinationList.length > 0 
-                && destinationList.map((el) => el?(<Card {...el} />):'')}
+                {destinationList
+                    && destinationList.length > 0
+                    && destinationList.map((el) => el ? (<Card {...el} />) : '')}
             </div>
         </>
 

@@ -23,7 +23,6 @@ const SwitchUI = ({ value, setValue }: SwitchUII) => {
                 <input type="checkbox" className="switch" value={stringValue} name="switch-ui" onChange={handleToggle} />
                 <span className="switch__handle" />
             </label>
-            <span className="switch__label__tag">{value ? 'Dark Mode' : 'Light Mode'}</span>
         </div>
     );
 };

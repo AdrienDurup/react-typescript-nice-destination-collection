@@ -20,14 +20,9 @@ import {DestinationCtxt} from '../../contexts';
 import { useDestination } from '../../hooks';
 
 function App() {
-  /* 
-  TODO place context definitions of non-reusable components in a context folder. Do the same for interfaces */
   const[destinationList,setDestinationList]=useDestination();
-    // useEffect(()=>{
 
-    // },[]);
    useEffect(() => {
-
 console.log('updated',destinationList.length);
 }, [destinationList]);
 
