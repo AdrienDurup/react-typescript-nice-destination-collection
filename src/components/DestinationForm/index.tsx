@@ -3,8 +3,6 @@ import { BaseSyntheticEvent, useContext, useEffect, useRef } from 'react';
 import { DestinationContextI, DestinationCtxt } from '../../contexts';
 import { Destination, DestinationData } from '../../model';
 
-// Components
-
 // context 
 import modalContext from '../Modal/context';
 // Styling
@@ -51,7 +49,23 @@ const DestinationForm = () => {
     return (
         <form className='new-destination-form' onSubmit={handlePostDestination}>
             <h2 className='new-destination-form__title'>Ajouter une destination</h2>
-            <input
+
+                     <input
+                className='new-destination-form__input'
+                type='text'
+                placeholder='Nom de la destination'
+                ref={firstInputDOM}
+                required
+                name='new-destination-name'
+            />
+            <input className='new-destination-form__input' type='text' required placeholder='Adresse' name='new-destination-address'/>
+            <input className='new-destination-form__input' type='text' required placeholder='Lien de l’image' name='new-destination-img'/>
+            <input className='new-destination-form__input --quarter' required type='text' placeholder='Nb. Habitants' name='new-destination-population'/>
+            <input className='new-destination-form__input  --quarter' required type='text' placeholder='Nb. Hôtels' name='new-destination-hostels'/>
+            <input className='new-destination-form__input  --quarter' required type='text' placeholder='Revenu Moy' name='new-destination-income'/>
+            <input className='new-destination-form__input  --quarter' required type='text' placeholder='Superficie' name='new-destination-area'/>
+            {/* FOR TEST PURPOSE WITH STATIC VALUES */}
+            {/* <input
                 className='new-destination-form__input'
                 type='text'
                 placeholder='Nom de la destination'
@@ -65,7 +79,7 @@ const DestinationForm = () => {
             <input className='new-destination-form__input --quarter' required type='text' placeholder='Nb. Habitants' name='new-destination-population' value='12' />
             <input className='new-destination-form__input  --quarter' required type='text' placeholder='Nb. Hôtels' name='new-destination-hostels' value='123' />
             <input className='new-destination-form__input  --quarter' required type='text' placeholder='Revenu Moy' name='new-destination-income' value='34000' />
-            <input className='new-destination-form__input  --quarter' required type='text' placeholder='Superficie' name='new-destination-area' value='345' />
+            <input className='new-destination-form__input  --quarter' required type='text' placeholder='Superficie' name='new-destination-area' value='345' /> */}
             <div className='new-destination-form__btn__container'>
                 <button className='new-destination-form__btn' type='button' onClick={handleCancelModal}>Annuler</button>
                 <button className='new-destination-form__btn' type='submit' >Confirmer</button>
