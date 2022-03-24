@@ -16,4 +16,4 @@ React with :
 - homemade reusable SwitchUI component (with SASS)
 - homemade reusable Modal component (uses a context, and can be populated with components — like forms — from a config file)
 
-App has been initialized with create-react-app which supports Typescript, Jest and React Testing Tibrary.
+App has been initialized with create-react-app which supports Typescript, Jest and React Testing Library.
